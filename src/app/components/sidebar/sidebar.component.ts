@@ -10,6 +10,8 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class SidebarComponent {
 
+showApp=false;
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -17,5 +19,7 @@ export class SidebarComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
-
+  app(){
+    this.showApp=true;
+  }
 }

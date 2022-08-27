@@ -15,7 +15,6 @@ export class StandardComponent implements OnInit {
   myHistory:any=[];  
   input: string = '';
   result: string = '';
-  inputs!:string;
 
 
   pressNum(num: string) {
@@ -100,11 +99,11 @@ export class StandardComponent implements OnInit {
       formula = formula.substr(0, formula.length - 1);
     }
 
-    console.log("Formula " + formula);
+    console.log(formula);
     this.result = eval(formula);
   }
   saveHistory(){
-    const hInput = this.inputs;
+    const hInput = this.input;
     const hResult = this.result;
     this.myHistory.push({
       hInput:hInput,

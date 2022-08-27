@@ -1,0 +1,54 @@
+<!-- A<div class="container mt-4">
+   <div class="col-sm-6">
+    <div class="card">
+        <div class="card-header text-center bg-secondary">
+            <h1><b>Currency Converter</b></h1>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="mb-3 col-sm-6">
+                    <select name="currency" id="inputCurrency" class="form-control" #currency  >
+                     <option for="inputCurrency" *ngFor="let input of firstInput" value=""> <b>{{input.currency}}</b> </option>
+                    </select>
+                 </div>
+                 <div class="mb-3 col-sm-6">
+                    <select name="currency" id="iNR" class="form-control">
+                     <option  value="Indian Rupee"> <b>Indian Rupee</b> </option>
+                    </select>
+                 </div>
+            </div>
+           
+            <div class="mb-3 text-center">
+                <button class="btn btn-success" (click)="convert(currency.value)">CONVERT</button>
+            </div>
+            <div>
+                <hr>
+                <p>one {{currency.value}}  is equal to {{convertValue}} Indian Rupee('s) </p>
+            </div>
+        </div>
+    </div>
+   </div>
+</div> -->
+<div class="container" *ngIf="rates">
+    <h1>Currency Converter</h1>
+  
+    <input type="number" placeholder="amount" [(ngModel)]="amount">
+  
+    <label>From: </label>
+    <select [(ngModel)]="from" (change)="loadRates()">
+      <option *ngFor="let c of getAllCurrencies()" [value]="c">{{c}}</option>
+  
+    </select>
+  
+    <label>To: </label>
+    <select [(ngModel)]="to">
+      <option *ngFor="let c of getAllCurrencies()" [value]="c">{{c}}</option>
+  
+    </select>
+  
+    <br>
+  
+    <b [style.color]="amount < 0 ? 'red': ''">{{amount.toFixed(2)}} {{from}} = {{convert().toFixed(2)}} {{to}}</b>
+    
+    
+  </div>

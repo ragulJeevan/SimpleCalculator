@@ -5,12 +5,14 @@
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
-        (click)="drawer.toggle()">
+        (click)="drawer.toggle()"
+        (click)="app()">
         <mat-icon aria-label="Side nav toggle icon"> menu </mat-icon>
       </button>
       <h1> <b>CALCULATOR</b> </h1>
     </mat-toolbar >
     <!-- Add Content Here -->
+  
     <router-outlet> </router-outlet>
   </mat-sidenav-content>
   <mat-sidenav #drawer class="sidenav bg-secondary" 
@@ -18,8 +20,8 @@
       [opened]=" false">
     <mat-toolbar> MENU </mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/standard" >STANDARD</a>
-      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item routerLink="/standard">STANDARD</a>
+      <a mat-list-item routerLink="/currency">CURRENCY</a>
       <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
   </mat-sidenav>

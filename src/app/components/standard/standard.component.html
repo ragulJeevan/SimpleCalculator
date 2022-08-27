@@ -17,32 +17,32 @@
                 <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="allClear()">C</button>
                 <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="clear()">x</button>
                 <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="clearHistory()">MC</button>
-                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('+')">+</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressOperator('+')">+</button>
               </div>
                <!--type pad -->
                <div class=" mt-2">
                 <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('9')">9</button>
                 <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('8')">8</button>
                 <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('7')">7</button>
-                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('-')">-</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressOperator('-')">-</button>
               </div>
                <!--type pad -->
                <div class=" mt-2">
                 <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('6')">6</button>
                 <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('5')">5</button>
                 <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('4')">4</button>
-                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('*')">x</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressOperator('*')">x</button>
               </div>
                <!--type pad -->
                <div class=" mt-2">
                 <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('3')">3</button>
                 <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('2')">2</button>
                 <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('1')">1</button>
-                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('/')">/</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressOperator('/')">/</button>
               </div>
                <!--type pad -->
                <div class=" mt-2">
-                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('.')">.</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressOperator('.')">.</button>
                 <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('0')">0</button>
                 <button class="btn btn-outline-secondary text-dark btn-success col-6 rounded-pill" (click)="getAnswer()">=</button>
               </div>
