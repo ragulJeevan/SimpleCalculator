@@ -14,7 +14,6 @@ export class CurrencyComponent implements OnInit {
   from = 'USD';
   to = 'INR';
   rates!: {[key: string]: number}
-
   
   convert(): number{
     return this.amount * this.rates[this.to];
@@ -35,8 +34,8 @@ export class CurrencyComponent implements OnInit {
   }
 
   getRates(base:string): Observable<Currency> {
-    return this.http.get<Currency>(`https://api.apilayer.com/fixer/latest?symbols=UAH,USD,EUR,INR,JPY,CHF,AUD,IRR,KWD,
-    MVR,OMR,SAR,SGD,ESP,YER,GBD,AFN,CAD,DMK,PKR,LKR&base=${base}&apikey=AvcX0ALt9UNim1eAhU5fNUYiDQddTLBO`)
+    return this.http.get<Currency>(`https://api.apilayer.com/fixer/latest?symbols=UAH,USD,EUR,INR,AUD,CHF,AFN,
+    DZD,ATS,CNY,COP,DKK,DMK,ESP,IRR,JPY,KWD,PKR,QAR,RUB,SGD,ZAR,KRW,LKR,THB,&base=${base}&apikey=AvcX0ALt9UNim1eAhU5fNUYiDQddTLBO`)
   }
 
   
