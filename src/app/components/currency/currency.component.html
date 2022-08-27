@@ -29,8 +29,8 @@
     </div>
    </div>
 </div> -->
-<div class="container" *ngIf="rates">
-    <h1>Currency Converter</h1>
+<!-- <div class="container" *ngIf="rates">
+    <h1>b</h1>
   
     <input type="number" placeholder="amount" [(ngModel)]="amount">
   
@@ -51,4 +51,39 @@
     <b [style.color]="amount < 0 ? 'red': ''">{{amount.toFixed(2)}} {{from}} = {{convert().toFixed(2)}} {{to}}</b>
     
     
+  </div> -->
+
+  <div class="container mt-4">
+    
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header bg-primary text-center"><h1><u>Currency Converter</u></h1></div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="mb-3 col-sm-6">
+                        <select [(ngModel)]="from" (change)="loadRates()" class="form-control">
+                            <option *ngFor="let c of getAllCurrencies()" [value]="c">{{c}}</option>
+                          </select>
+                      
+                     </div>
+                     <div class="mb-3 col-sm-6">
+                        <select [(ngModel)]="to"  class="form-control">
+                            <option *ngFor="let c of getAllCurrencies()" [value]="c">{{c}}</option>
+                          </select>
+                     </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-sm-6">
+                        <input type="number" placeholder="amount" [(ngModel)]="amount" class="form-control">
+                    </div>
+                    <div class="mb-3 col-sm-6">
+                        <input type="number" class="form-control" value="{{convert().toFixed(2)}}">
+                    </div>
+                </div>
+                <br>
+  
+    <b [style.color]="amount < 0 ? 'red': ''">{{amount.toFixed(2)}} {{from}} = {{convert().toFixed(2)}} {{to}}</b>
+            </div>
+        </div>
+    </div>
   </div>

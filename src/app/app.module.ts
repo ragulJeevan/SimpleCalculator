@@ -16,7 +16,7 @@ import { CurrencyComponent } from './components/currency/currency.component';
 import { ConverterComponent } from './components/converter/converter.component';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 import { CurrencyService } from './components/services/currency.service';
 
 @NgModule({
@@ -40,6 +40,7 @@ import { CurrencyService } from './components/services/currency.service';
     MatListModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [
   CurrencyService],
