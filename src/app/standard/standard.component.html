@@ -1,0 +1,71 @@
+<div class="container mt-4">
+    <div class="row">     
+      <div class="col-sm-8">
+        <div class="card">
+          <div class="card-header bg-secondary"><h1><b>STANDARD</b></h1></div>
+          <div class="card-body">
+            <!--input-->
+              <div class="mb-3 ">
+                <input type="text" value="{{input}}"class="form-control">
+              </div>
+              <!--output-->
+              <div class="mb-3 ">
+                <input type="text" value="{{result}}" class="form-control">
+              </div>
+              <!--type pad -->
+              <div class=" mt-2 ">
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="allClear()">C</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="clear()">x</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="clearHistory()">MC</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('+')">+</button>
+              </div>
+               <!--type pad -->
+               <div class=" mt-2">
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('9')">9</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('8')">8</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('7')">7</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('-')">-</button>
+              </div>
+               <!--type pad -->
+               <div class=" mt-2">
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('6')">6</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('5')">5</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('4')">4</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('*')">x</button>
+              </div>
+               <!--type pad -->
+               <div class=" mt-2">
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('3')">3</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('2')">2</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('1')">1</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('/')">/</button>
+              </div>
+               <!--type pad -->
+               <div class=" mt-2">
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('.')">.</button>
+                <button class="btn btn-outline-secondary text-dark col-3 rounded-pill" (click)="pressNum('0')">0</button>
+                <button class="btn btn-outline-secondary text-dark btn-success col-6 rounded-pill" (click)="getAnswer()">=</button>
+              </div>
+             
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card bg-b text-light">
+          <div class="card-header">
+              <h1 class="text-center ">History</h1>
+          </div>
+          <div class="card-body">
+            <div class="card bg-b text-light" *ngFor="let val of myHistory">
+              <div class="card-body">
+                <p>{{val.hInput}}</p>
+                <p>={{val.hResult}}</p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
