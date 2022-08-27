@@ -12,6 +12,7 @@
       <h1> <b>CALCULATOR</b> </h1>
     </mat-toolbar >
     <!-- Add Content Here -->
+    <div *ngIf="!showApp"> <app-standard></app-standard> </div>
   
     <router-outlet> </router-outlet>
   </mat-sidenav-content>

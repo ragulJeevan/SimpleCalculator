@@ -20,7 +20,8 @@ export class CurrencyComponent implements OnInit {
   }
 
   loadRates(){
-    this.getRates(this.from).subscribe(res => this.rates = res.rates)
+    this.getRates(this.from).subscribe((res) => this.rates = res.rates);
+    
   } 
   
 
@@ -30,12 +31,12 @@ export class CurrencyComponent implements OnInit {
   }
 
   getAllCurrencies(): string[]{
-    return Object.keys(this.rates)
+    return Object.keys(this.rates);
   }
 
   getRates(base:string): Observable<Currency> {
     return this.http.get<Currency>(`https://api.apilayer.com/fixer/latest?symbols=UAH,USD,EUR,INR,AUD,CHF,AFN,
-    DZD,ATS,CNY,COP,DKK,DMK,ESP,IRR,JPY,KWD,PKR,QAR,RUB,SGD,ZAR,KRW,LKR,THB,&base=${base}&apikey=AvcX0ALt9UNim1eAhU5fNUYiDQddTLBO`)
+    DZD,ATS,CNY,COP,DKK,DMK,ESP,IRR,JPY,KWD,PKR,QAR,RUB,SGD,ZAR,KRW,LKR&base=${base}&apikey=AvcX0ALt9UNim1eAhU5fNUYiDQddTLBO`)
   }
 
   
