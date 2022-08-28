@@ -17,7 +17,7 @@
                     </select>
                  </div>
             </div>
-           
+
             <div class="mb-3 text-center">
                 <button class="btn btn-success" (click)="convert(currency.value)">CONVERT</button>
             </div>
@@ -29,32 +29,81 @@
     </div>
    </div>
 </div> -->
-<!-- <div class="container" *ngIf="rates">
-    <h1>b</h1>
-  
-    <input type="number" placeholder="amount" [(ngModel)]="amount">
-  
-    <label>From: </label>
-    <select [(ngModel)]="from" (change)="loadRates()">
-      <option *ngFor="let c of getAllCurrencies()" [value]="c">{{c}}</option>
-  
-    </select>
-  
-    <label>To: </label>
-    <select [(ngModel)]="to">
-      <option *ngFor="let c of getAllCurrencies()" [value]="c">{{c}}</option>
-  
-    </select>
-  
-    <br>
-  
-    <b [style.color]="amount < 0 ? 'red': ''">{{amount.toFixed(2)}} {{from}} = {{convert().toFixed(2)}} {{to}}</b>
-    
-    
+<!-- <div class="container">
+    <div class="row">
+      <div class="col- mx-auto converter-currency">
+        <div class="text-center card">
+          <mat-card-header class="indigo text-white">Currency Converter"></mat-card-header>
+          <div class="card-body" style="background-color:#fafafa">
+            <mat-card-title>
+              <div class="row">
+                  <div class="col-5">
+                      <div class="dropdown" matDropdown>
+                          <button matDropdownToggle matBtn color="primary" class="dropdown-toggle waves-light" type="button"
+                            matWavesEffect>
+                            {{fromDropdownName}}
+                          </button>
+                          <div class="dropdown-menu dropdown-primary">
+                            <button class="dropdown-item" *ngFor="let conversion of conversions" (click)="conversionFromChange(conversion.id,conversion.name)">{{conversion.name}}</button>
+                          </div>
+                        </div>
+                  </div>
+                  <div class="col-2">
+                      <i class="fa fa-arrow-right w-25 p-3 align-arrow" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-5">
+                      <div class="dropdown" matDropdown>
+                          <button matDropdownToggle matBtn color="primary" class="dropdown-toggle waves-light" type="button"
+                            mdbWavesEffect>
+                            {{toDropdownName}}
+                          </button>
+                          <div class="dropdown-menu dropdown-primary">
+                            <button class="dropdown-item" *ngFor="let conversion of conversions" (click)="conversionToChange(conversion.id,conversion.name)">{{conversion.name}}</button>
+                          </div>
+                        </div>
+                  </div>
+            </div>
+            </mat-card-title>
+            <div class="card-text">
+              <form class="text-center border border-light p-5" #conversionForm="ngForm">
+
+                  <i class="fa w-25 p-3" aria-hidden="true"
+                  [ngClass]="fromDropdownName === 'USD' || fromDropdownName === 'CAD' ? 'fa-dollar' : fromDropdownName === 'INR' ? 'fa-rupee' :
+                  fromDropdownName === 'EUR' ? 'fa-euro' : fromDropdownName === 'JPY' ? 'fa-yen' : 'fa-krw'"></i>
+                  <i class="fa fa-arrow-right w-25 p-3" aria-hidden="true"></i>
+                  <i class="fa w-25 p-3" aria-hidden="true"
+                  [ngClass]="toDropdownName === 'USD' || toDropdownName === 'CAD' ? 'fa-dollar' : toDropdownName === 'INR' ? 'fa-rupee' :
+                  toDropdownName === 'EUR' ? 'fa-euro' : toDropdownName === 'JPY' ? 'fa-yen' : 'fa-krw'"></i>
+                  <div class="md-form wow fadeInUp" *ngIf="showConfirm">
+                    <input mdbInputDirective type="number" id="currencyId" [(ngModel)]="amount" name="currencyInput"
+                      required >
+                    <button mdbBtn type="button" color="info" block="true" outline="true" (click)="convertCurrency()"
+                      [disabled]="!conversionForm.valid" mdbWavesEffect>Convert</button>
+                  </div>
+                  <div class="md-form wow fadeInUp" data-wow-delay="0.6s" *ngIf="!showConfirm">
+                      <button class="btn-copy-code btn btn-outline-grey btn-sm px-2 waves-effect" (click)="copyMessage()">
+                        <i class="fa fa-copy mr-1" *ngIf="copyLabel === 'Copy Amount'"></i> {{copyLabel}}
+                      </button>
+                    <div class="card-text" *ngIf="toDropdownName === 'USD'">{{convertedAmount | currency:'USD'}}</div>
+                    <div class="card-text" *ngIf="toDropdownName === 'INR'">{{convertedAmount | currency:'INR'}}</div >
+                    <div class="card-text" *ngIf="toDropdownName === 'EUR'">{{convertedAmount | currency:'EUR'}}</div >
+                    <div class="card-text" *ngIf="toDropdownName === 'JPY'">{{convertedAmount | currency:'JPY'}}</div>
+                    <div class="card-text" *ngIf="toDropdownName === 'CAD'">{{convertedAmount | currency:'CAD'}}</div>
+                    <div class="card-text" *ngIf="toDropdownName === 'KRW'">{{convertedAmount | currency:'KRW'}}</div>
+                    <button mdbBtn type="button" color="info" block="true" outline="true" (click)="showConfirm=!showConfirm"
+                      mdbWavesEffect>Back</button>
+                </div>
+
+              </form>
+            </div>
+        </div>
+          <mat-card-footer class="blue-grey text-white">Exchange Rates updated frequently</mat-card-footer>
+          </div>
+      </div>
+    </div>
   </div> -->
 
-  <div class="container mt-4">
-    
+ <div class="container mt-4">
     <div class="col-sm-8">
         <div class="card">
             <div class="card-header bg-primary text-center"><h1><u>Currency Converter</u></h1></div>
@@ -64,7 +113,7 @@
                         <select [(ngModel)]="from" (change)="loadRates()" class="form-control">
                             <option *ngFor="let c of getAllCurrencies()" [value]="c">{{c}}</option>
                           </select>
-                      
+                      <mat-spinner *ngIf=""></mat-spinner>
                      </div>
                      <div class="mb-3 col-sm-6">
                         <select [(ngModel)]="to"  class="form-control">
@@ -81,10 +130,10 @@
                     </div>
                 </div>
                 <br>
-  
+    
     <b [style.color]="amount < 0 ? 'red': ''">{{amount.toFixed(2)}} {{from}} = {{convert().toFixed(2)}} {{to}}</b>
             </div>
         </div>
     </div>
-  </div>
-
+    
+ </div>

@@ -18,6 +18,7 @@ import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 import { CurrencyService } from './components/services/currency.service';
+import { AgeComponent } from './components/age/age.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CurrencyService } from './components/services/currency.service';
     SidebarComponent,
     StandardComponent,
     CurrencyComponent,
-    ConverterComponent
+    ConverterComponent,
+    AgeComponent
   ],
   imports: [
     BrowserModule,

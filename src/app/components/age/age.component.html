@@ -1,0 +1,26 @@
+<!-- <h1>AGE CALCULATOR</h1>
+<input type="date" [(ngModel)]="age" />
+<button type="button" (click)="ageCalculator()"> Calculate </button>
+<p *ngIf="age">Your Are{{ showAge }} Younger</p> -->
+
+<div class="container mt-4">
+    <div class="card my-2 col-sm-6">
+        <div class="card-text text-center"><h1><b>AGE CALCULATOR</b></h1></div>
+
+        <div class="card mt-2 col-sm-6 " *ngIf="viewAge">
+            <div class="card-body">
+                <p> <b> YOU ARE {{ showAge }} YEAR YOUNGER</b> <mat-icon>insert_emoticon</mat-icon> </p>
+            </div>
+        </div>
+   
+     <div class="card-body">
+            <div class="mb-3">
+                <input type="date" class="form-control" [(ngModel)]="age">
+            </div>
+            <div class="mb-3 text-center col-sm-6" >
+                <button class="btn btn-primary col-sm-6 mx-1" (click)="ageCalculator()">CALCULATE</button>
+                <button class="btn btn-secondary col-sm-4 mx-1" type="reset" (click)="resetAge()">RESET</button>
+            </div>
+     </div>
+    </div>
+</div>

@@ -8,10 +8,10 @@ import { Observable } from "Rxjs";
   providedIn: 'root'
 })
 export class CurrencyService {
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
-  getRates(base:string): Observable<Currency> {
-    return this.http.get<Currency>(`https://api.apilayer.com/fixer/latest?symbols=UAH,USD,EUR&base=${base}&apikey=AvcX0ALt9UNim1eAhU5fNUYiDQddTLBO`)
+  /* To get the current currency exchange rates based on the base provided for the given 'toCurrency' */
+  getCurrency(fromCurrency: string, toCurrency: string): Observable<Currency> {
+      return this.httpClient.get<Currency>('https://ratesapi.io/api/latest?base=' + fromCurrency + '&symbols=' + toCurrency);
   }
-
 }

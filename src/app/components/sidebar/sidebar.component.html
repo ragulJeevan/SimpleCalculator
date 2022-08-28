@@ -16,14 +16,21 @@
   
     <router-outlet> </router-outlet>
   </mat-sidenav-content>
-  <mat-sidenav #drawer class="sidenav bg-secondary" 
+  <mat-sidenav #drawer class="sidenav bg-light" 
       [mode]="'side'"
       [opened]=" false">
     <mat-toolbar> MENU </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/standard">STANDARD</a>
-      <a mat-list-item routerLink="/currency">CURRENCY</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item routerLink="/"[disabled]="true">SCIENTIFIC <mat-icon>lock</mat-icon></a>
+      <a mat-list-item routerLink="/age">AGE CALCULATOR</a>
+      <a mat-list-item routerLink="/currency" [disabled]="true">CURRENCY CONVERTER <mat-icon>lock</mat-icon></a>
+      <a mat-list-item routerLink="/converter" [disabled]="true">UNIT CONVERTER <mat-icon>lock</mat-icon></a>
+      <a mat-list-item routerLink="/"[disabled]="true">PROGRAMMING <mat-icon>lock</mat-icon></a>
+      <a mat-list-item routerLink="/"[disabled]="true">TAX CALCULATOR <mat-icon>lock</mat-icon></a>
+      <a mat-list-item routerLink="/"[disabled]="true">EMI CALCULATOR <mat-icon>lock</mat-icon></a>
+      
+     
     </mat-nav-list>
   </mat-sidenav>
   

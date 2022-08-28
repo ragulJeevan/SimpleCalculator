@@ -12,7 +12,7 @@ import { Observable } from "Rxjs";
 export class CurrencyComponent implements OnInit {
   amount = 1;
   from = 'USD';
-  to = 'INR';
+  to = 'IN';
   rates!: {[key: string]: number}
   
   convert(): number{
@@ -20,23 +20,21 @@ export class CurrencyComponent implements OnInit {
   }
 
   loadRates(){
-    this.getRates(this.from).subscribe((res) => this.rates = res.rates);
-    
+    this.getRates(this.from).subscribe(res => this.rates = res.rates)
   } 
   
 
-  constructor(
+  constructor(private service: CurrencyService,
     private http:HttpClient) {
     
   }
 
   getAllCurrencies(): string[]{
-    return Object.keys(this.rates);
+    return Object.keys(this.rates)
   }
 
   getRates(base:string): Observable<Currency> {
-    return this.http.get<Currency>(`https://api.apilayer.com/fixer/latest?symbols=UAH,USD,EUR,INR,AUD,CHF,AFN,
-    DZD,ATS,CNY,COP,DKK,DMK,ESP,IRR,JPY,KWD,PKR,QAR,RUB,SGD,ZAR,KRW,LKR&base=${base}&apikey=AvcX0ALt9UNim1eAhU5fNUYiDQddTLBO`)
+    return this.http.get<Currency>(`https://api.apilayer.com/fixer/latest?symbols=INR,USD,EUR&base=${base}&apikey=AvcX0ALt9UNim1eAhU5fNUYiDQddTLBO`)
   }
 
   

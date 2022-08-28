@@ -1,10 +1,11 @@
 export interface Currency {
-      success: true,
-  timestamp: 1655381463,
-  base: "USD",
-  date: "2022-06-16",
-  rates: {
-    [ket:string]:number
-  }
-
+    rates:
+    {
+        INR:any,
+        USD:any,
+        JPY:any,
+        EUR:any,
+        CAD:any,
+        KRW:any
+    };
 }
